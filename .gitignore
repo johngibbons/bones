@@ -38,6 +38,7 @@ nbproject/
 ## Misc
 ############
 
+node_modules/
 bin/
 tmp/
 *.tmp
