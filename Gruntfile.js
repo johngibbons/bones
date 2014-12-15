@@ -1,6 +1,8 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+  require('time-grunt')(grunt);
+
   // Project configuration.
   grunt.initConfig({
     // Metadata.
@@ -46,57 +48,66 @@ module.exports = function(grunt) {
         browser: true,
         globals: {
           jQuery: true
-        }
+        },
+        force: true,
       },
       gruntfile: {
         src: 'Gruntfile.js'
       },
-      lib_test: {
-        src: ['library/**/*.js', 'test/**/*.js']
+      files: {
+        src: ['library/js/scripts.js']
       }
-    },
-    qunit: {
-      files: ['test/**/*.html']
     },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
+        tasks: ['newer:jshint:gruntfile']
       },
       lib_test: {
         files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
+        tasks: ['newer:jshint:lib_test', 'qunit']
       },
       css: {
         files: 'library/**/*.scss',
-        tasks: ['compass']
+        tasks: ['newer:compass']
       },
       livereload: {
         files: ['library/css/*.css'],
         options: { livereload: true }
       }
-    }
+    },
       compass: {                  // Task
         dist: {                   // Target
           options: {              // Target options
             sassDir: 'library/scss',
             cssDir: 'library/css',
             imagesDir: 'library/images',
-            jsDir: 'library/js'
+            javascriptsDir: 'library/js'
           }
+        }
+      },
+      imagemin: {                          // Task
+        static: {                          // Target
+          options: {                       // Target options
+            optimizationLevel: 3,
+            svgoPlugins: [{ removeViewBox: false }],
+          }
+        },
+        dynamic: {                         // Another target
+          files: [{
+            expand: true,                  // Enable dynamic expansion
+            cwd: 'library/images',                   // Src matches are relative to this path
+            src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+            dest: 'dist/'                  // Destination path prefix
+          }]
         }
       }
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-compass');
+  require('load-grunt-tasks')(grunt);
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'compass']);
+  grunt.registerTask('default', ['jshint', 'newer:concat', 'newer:uglify', 'newer:compass', 'newer:imagemin']);
 
 };
