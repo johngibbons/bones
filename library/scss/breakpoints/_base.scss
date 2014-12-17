@@ -16,13 +16,15 @@ GENERAL STYLES
 *********************/
 
 body {
-	font-family: $lato;
+	@include layout(16 15px);
+	font-family: $proxima-nova;
 	font-size: 100%;
 	line-height: 1.5;
 	color: $text-color;
-	background-color: $gray;
+	background-color: $white;
   -webkit-font-smoothing: antialiased;
 }
+
 
 /********************
 WORDPRESS BODY CLASSES
@@ -80,6 +82,7 @@ LINK STYLES
 
 a, a:visited {
 	color: $link-color;
+	text-decoration: none;
 
 	/* on hover */
 	&:hover, &:focus {
@@ -108,7 +111,9 @@ H1, H2, H3, H4, H5 STYLES
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
-	font-weight: 500;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: .1em;
 	/*
 	if you're going to use webfonts, be sure to check your weights
 	http://css-tricks.com/watch-your-font-weight/
@@ -121,18 +126,19 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;
+	font-size: 34px;
 	line-height: 1.333em;
 }
 
 h2, .h2 {
-	font-size: 1.75em;
+	font-size: 18px;
+	font-weight: 600;
 	line-height: 1.4em;
-	margin-bottom: 0.375em;
 }
 
 h3, .h3 {
-	font-size: 1.125em;
+	font-size: 14px;
+	font-style: italic;
 }
 
 h4, .h4 {
@@ -152,14 +158,19 @@ HEADER STYLES
 *********************/
 
 .header {
-	background-color: $black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: $white;
+	padding: 25px 0;
+	border-bottom: 1px solid $gray;
 }
 
 	#logo {
-		margin: 0.75em 0;
 
 		a {
-			color: $white;
+			color: $text-color;
 		}
 	}
 
@@ -176,16 +187,20 @@ and more scalable.
 */
 
 .nav {
-	border-bottom: 0;
-	margin: 0;
+		text-align: center;
+		border-bottom: 0;
+		margin: 0;
 
 	li {
 
 		a {
-			display: block;
-			color: $white;
+			display: inline-block;
+			color: $text-color;
 			text-decoration: none;
-			padding: 0.75em;
+			padding: 0.5em 0.75em;
+			text-transform: uppercase;
+			letter-spacing: .1em;
+			font-size: 14px;
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -194,11 +209,22 @@ and more scalable.
 			keep this file as small as possible!
 			*/
 			&:hover, &:focus {
-
+				text-decoration: none;
+				color: $link-color;
 			}
 		}
 
-		&:first-child {}
+		&:first-child {
+
+			a {
+				color: $white;
+				background-color: $alura-orange;
+
+			&:hover {
+				background-color: darken($alura-orange, 9%);
+			}
+			}
+		}
 
 		&:last-child {}
 
@@ -251,23 +277,19 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	margin-top: 1.5em;
+	margin-top: 166px;
 }
 
 		.hentry {
 			background-color: $white;
-			border-radius: 3px;
 			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
 
 			header {
-				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
+
 			}
 
 			footer {
 				padding: 1.5em;
-				border-top: 1px solid $light-gray;
 
 				p {
 					margin: 0;
@@ -280,9 +302,26 @@ POSTS & CONTENT STYLES
 		.page-title,
 		.entry-title {
 			margin: 0;
+			text-align: center;
 		}
 
-		.single-title {}
+		.single-hero-container {
+			height: 275px;
+			overflow: hidden;
+		}
+
+		.single-hero {
+			display: inline-block;
+			width: 100%;
+			height: auto;
+		}
+		.single-title {
+			font-size: 18px;
+			font-weight: 600;
+			text-align: left;
+			margin-top: 35px;
+			margin-left: gutter();
+		}
 
 		.page-title {}
 
@@ -292,7 +331,9 @@ POSTS & CONTENT STYLES
 
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
+		.post {
+			@include container(span(10) + 2 * gutter())
+			}            /* general post style */
 		.page {}            /* general article on a page style */
 		.attachment {}      /* general style on an attatchment */
 		.sticky {}          /* sticky post style */
@@ -304,14 +345,16 @@ POSTS & CONTENT STYLES
 		.byline {
 			color: $meta-gray;
 			font-style: italic;
-			margin: 0;
+			margin:0;
+			margin-top: 10px;
+			margin-left: gutter();
 
 			time {}
 		}
 
 		/* entry content */
 		.entry-content {
-			padding: 1.5em 1.5em 0;
+			margin: 35px gutter();
 
 			p {
 				margin: 0 0 1.5em;
@@ -861,8 +904,11 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	background-color: $black;
-	color: $light-gray;
+	color: $text-color;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
 }
 
 	/*

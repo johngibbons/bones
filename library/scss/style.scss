@@ -22,6 +22,8 @@ These files are needed at the beginning so that we establish all
 our mixins, functions, and variables that we'll be using across
 the whole project.
 *********************/
+//import susy
+@import "susy";
 
 // normalize: http://necolas.github.io/normalize.css/
 @import "partials/normalize";
@@ -37,9 +39,6 @@ the whole project.
 
 // import mixins
 @import "partials/mixins";
-
-// the grid
-@import "partials/grid";
 
 /*********************
 IMPORTING MODULES

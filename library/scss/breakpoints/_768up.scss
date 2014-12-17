@@ -24,7 +24,7 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-	width: 760px;
+
 }
 
 /*********************
@@ -33,7 +33,9 @@ HEADER STYLES
 
 .header {}
 
-	#logo {}
+	#logo {
+		position: absolute;
+	}
 
 /*********************
 NAVIGATION STYLES
@@ -46,10 +48,11 @@ NAVIGATION STYLES
 		margin-top:0;
 	}
 	li {
-		float: left;
+		display: inline;
 		position: relative;
 
 		a {
+			display: inline-block;
 			border-bottom: 0;
 
 			/*
@@ -57,8 +60,7 @@ NAVIGATION STYLES
 			has the possibility of being a mobile device.
 			*/
 			&:hover, &:focus {
-				color: $white;
-				text-decoration: underline;
+				
 			}
 		}
 

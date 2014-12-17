@@ -17,12 +17,17 @@
               <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 
                 <header class="article-header entry-header">
+                  <div class="single-hero-container">
+                    <?php if ( has_post_thumbnail() ) {
+                            the_post_thumbnail('large', array('class' => 'single-hero'));
+                          } ?>
+                  </div>
 
                   <h1 class="entry-title single-title" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
 
                   <p class="byline entry-meta vcard">
 
-                    <?php printf( __( 'Posted %1$s by %2$s', 'bonestheme' ),
+                    <?php printf( __( '%1$s', 'bonestheme' ),
                        /* the time the post was published */
                        '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>',
                        /* the author of the post */
@@ -60,8 +65,6 @@
                 </section> <?php // end article section ?>
 
                 <footer class="article-footer">
-
-                  <?php printf( __( 'Filed under: %1$s', 'bonestheme' ), get_the_category_list(', ') ); ?>
 
                   <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
 

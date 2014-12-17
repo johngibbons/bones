@@ -63,16 +63,12 @@ module.exports = function(grunt) {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['newer:jshint:gruntfile']
       },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['newer:jshint:lib_test', 'qunit']
-      },
       css: {
         files: 'library/**/*.scss',
-        tasks: ['newer:compass']
+        tasks: ['compass']
       },
       livereload: {
-        files: ['library/css/*.css'],
+        files: ['library/**/*.css'],
         options: { livereload: true }
       }
     },
@@ -82,7 +78,9 @@ module.exports = function(grunt) {
             sassDir: 'library/scss',
             cssDir: 'library/css',
             imagesDir: 'library/images',
-            javascriptsDir: 'library/js'
+            javascriptsDir: 'library/js',
+            outputStyle: 'compressed',
+            require: 'susy',
           }
         }
       },

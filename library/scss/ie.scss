@@ -19,11 +19,10 @@ read those. Below, we need to import only the stuff IE can't
 understand (what's inside the media queries). We also need to
 import the mixins file so SASS can understand the variables.
 ******************************************************************/
-
+@import "susy";
 @import "partials/variables"; // import variables
 @import "partials/typography"; // import typography
 @import "partials/mixins"; // import mixins
-@import "partials/ie_grid"; // import grid
 
 // import everything inside media queries
 @import "breakpoints/481up";
