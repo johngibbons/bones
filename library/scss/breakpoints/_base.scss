@@ -19,6 +19,7 @@ body {
 	@include layout(16 15px);
 	font-family: $proxima-nova;
 	font-size: 100%;
+	font-weight: 300;
 	line-height: 1.5;
 	color: $text-color;
 	background-color: $white;
@@ -103,6 +104,11 @@ a, a:visited {
 		*/
 		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
 	}
+}
+
+::selection {
+	color: $white;
+	background: $alura-orange;
 }
 
 /******************************************************************
@@ -315,17 +321,18 @@ POSTS & CONTENT STYLES
 			width: 100%;
 			height: auto;
 		}
-		.single-title {
+
+		.page-title {
+			margin-bottom: 50px;
+		}
+
+		.entry-title {
 			font-size: 18px;
 			font-weight: 600;
 			text-align: left;
 			margin-top: 35px;
 			margin-left: gutter();
 		}
-
-		.page-title {}
-
-		.entry-title {}
 
 		.archive-title {}
 
