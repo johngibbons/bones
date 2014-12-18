@@ -31,10 +31,38 @@ LAYOUT & GRID STYLES
 HEADER STYLES
 *********************/
 
-.header {}
+.header {
+	padding: 25px 0;
+	border-bottom: 1px solid $gray;
+	bottom: auto;
+	left: 0;
+
+	.wrap {
+		position: static;
+		left: auto;
+		right: auto;
+		top: auto;
+		bottom: auto;
+		background-color: transparent;
+		width: auto;
+	}
+}
+
+	#mobile-nav-icon {
+		display: none;
+	}
+
+	#nav-logo-container {
+		position: static;
+		display: inline;
+		height: auto;
+	}
 
 	#logo {
 		position: absolute;
+		left: auto;
+		top: auto;
+		transform: none;
 	}
 
 /*********************
@@ -43,6 +71,8 @@ NAVIGATION STYLES
 
 .nav {
 	border: 0;
+	text-align: center;
+
 	ul {
 		background:$black;
 		margin-top:0;
@@ -53,8 +83,11 @@ NAVIGATION STYLES
 
 		a {
 			display: inline-block;
+			color: $text-color;
 			border-bottom: 0;
 			padding: 0.5em 0.75em;
+			width: auto;
+			background-color: transparent;
 
 			/*
 			you can use hover styles here even though this size

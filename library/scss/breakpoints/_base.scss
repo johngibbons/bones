@@ -168,16 +168,48 @@ HEADER STYLES
 	top: 0;
 	left: 0;
 	right: 0;
+	bottom: 0;
+
 	background-color: $white;
-	padding: 25px 0;
-	border-bottom: 1px solid $gray;
+
+	.wrap {
+		position: fixed;
+		top: 0;
+		left: 12%;
+		right: 0;
+		bottom: 0;
+		background-color: $alura-dark-gray;
+		width: 88%;
+	}
 }
 
-	#logo {
+	#mobile-nav-icon {
+		position: absolute;
+		left: 16px;
+		top: 16px;
 
+		img {
+			width: 14px;
+			height: 11px;
+		}
+	}
+
+	#nav-logo-container {
+		position: relative;
+		display: block;
+		height: 120px;
+		background-color: $gray;
+	}
+
+	#logo {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 		a {
 			color: $text-color;
 		}
+
 	}
 
 /*********************
@@ -193,20 +225,21 @@ and more scalable.
 */
 
 .nav {
-		text-align: center;
 		border-bottom: 0;
 		margin: 0;
 
 	li {
 
 		a {
-			display: inline-block;
-			color: $text-color;
+			display: block;
+			color: $white;
+			font-size: 14px;
 			text-decoration: none;
-			padding: 0.5em 0.75em;
 			text-transform: uppercase;
 			letter-spacing: .1em;
-			font-size: 14px;
+			width: 100%;
+			padding: 27px 0 27px 35px;
+			border-bottom: 1px solid darken($alura-medium-gray, 20%);
 
 			/*
 			remember this is for mobile ONLY, so there's no need
