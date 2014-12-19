@@ -48,13 +48,15 @@
 
 			<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
-				<div id="mobile-nav-icon"><img src="<?php echo get_template_directory_uri(); ?>/library/images/nav-icon.png"></div>
+				<a id="logo" href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_template_directory_uri(); ?>/library/images/nav-logo.png"></a>
+
+				<div class="mobile-nav-icon"><img src="<?php echo get_template_directory_uri(); ?>/library/images/nav-icon.png"></div>
 
 				<div id="inner-header" class="wrap cf">
 
 					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 					<div id="nav-logo-container">
-						<a id="logo" href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_template_directory_uri(); ?>/library/images/nav-logo.png"></a>
+						<a id="nav-logo" href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_template_directory_uri(); ?>/library/images/nav-logo.png"></a>
 					</div>
 
 					<?php // if you'd like to use the site description you can un-comment it below ?>

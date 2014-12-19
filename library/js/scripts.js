@@ -113,5 +113,9 @@ jQuery(document).ready(function($) {
   */
   loadGravatars();
 
+  $('.mobile-nav-icon img').click(function() {
+    $('.header').toggleClass('opened');
+  });
+
 
 }); /* end of as page load scripts */

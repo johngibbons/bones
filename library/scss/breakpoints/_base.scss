@@ -168,49 +168,79 @@ HEADER STYLES
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: 0;
-
+	height: 64px;
 	background-color: $white;
-
-	.wrap {
-		position: fixed;
-		top: 0;
-		left: 12%;
-		right: 0;
-		bottom: 0;
-		background-color: $alura-dark-gray;
-		width: 88%;
-	}
+	border-bottom: 1px solid $alura-light-gray;
 }
 
-	#mobile-nav-icon {
-		position: absolute;
-		left: 16px;
-		top: 16px;
+.header.opened {
+	position: fixed;
+	bottom:0;
+	top: auto;
 
-		img {
-			width: 14px;
-			height: 11px;
+
+	#inner-header{
+		position: fixed;
+		display: inline;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 64px;
+		background-color: $alura-dark-gray;
+		width: 100%;
+
+		nav {
+			display: inline;
 		}
+
 	}
 
 	#nav-logo-container {
-		position: relative;
 		display: block;
+		position: relative;
 		height: 120px;
 		background-color: $gray;
 	}
 
-	#logo {
+	#nav-logo {
 		position: absolute;
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
-		a {
-			color: $text-color;
-		}
-
 	}
+}
+
+
+#inner-header nav{
+	display:none;
+}
+
+
+.mobile-nav-icon {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+
+	img {
+		width: 14px;
+		height: 11px;
+	}
+}
+
+#nav-logo-container {
+	display: none;
+}
+
+#logo {
+	position: absolute;
+	top: 32px;
+	left: 15px;
+	transform: translateY(-50%);
+	a {
+		color: $text-color;
+	}
+
+}
 
 /*********************
 NAVIGATION STYLES

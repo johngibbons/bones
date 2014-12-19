@@ -36,8 +36,9 @@ HEADER STYLES
 	border-bottom: 1px solid $gray;
 	bottom: auto;
 	left: 0;
+	height: auto;
 
-	.wrap {
+	#inner-header {
 		position: static;
 		left: auto;
 		right: auto;
@@ -46,24 +47,23 @@ HEADER STYLES
 		background-color: transparent;
 		width: auto;
 	}
+
+	#inner-header nav{
+		display: inline;
+	}
+
 }
 
-	#mobile-nav-icon {
-		display: none;
-	}
+.mobile-nav-icon {
+	display: none;
+}
 
-	#nav-logo-container {
-		position: static;
-		display: inline;
-		height: auto;
-	}
-
-	#logo {
-		position: absolute;
-		left: auto;
-		top: auto;
-		transform: none;
-	}
+#logo {
+	position: absolute;
+	left: span(1);
+	top: auto;
+	transform: none;
+}
 
 /*********************
 NAVIGATION STYLES
