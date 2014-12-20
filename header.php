@@ -46,7 +46,7 @@
 
 		<div id="container">
 
-			<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+			<header class="header sticky" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
 				<a id="logo" href="<?php echo home_url(); ?>" rel="nofollow"><img src="<?php echo get_template_directory_uri(); ?>/library/images/nav-logo.png"></a>
 

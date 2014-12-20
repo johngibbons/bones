@@ -7,6 +7,18 @@ Author: John Gibbons
 .home .header {
 	position: absolute;
 	bottom: -64px;
+	top: auto;
+}
+
+.home .header.stuck {
+  position: fixed;
+  top: 0;
+  bottom: auto;
+}
+
+.home .header.stuck.opened {
+  top: auto;
+  bottom: 0;
 }
 
 #home-hero {
@@ -23,10 +35,20 @@ Author: John Gibbons
 	top: 50%;
 	left: 50%;
 	@include translate(-50%, -50%);
+	text-align: center;
 
-	button {
-		display: block;
-		margin: 57px auto 0;
+	.button {
+		color: $white;
+		margin-top: 57px;
+	}
+
+	#home-subtitle {
+		font-family: $adobe-text-pro;
+		font-style: italic;
+		font-size: 12px;
+		color: $white;
+		text-transform: none;
+		letter-spacing: .05em;
 	}
 }
 
@@ -40,18 +62,6 @@ Author: John Gibbons
 	}
 }
 
-#home-subtitle {
-
-	h4 {
-		font-family: $adobe-text-pro;
-		font-style: italic;
-		font-size: 12px;
-		color: $white;
-		text-transform: none;
-		letter-spacing: .05em;
-		text-align: center;
-	}
-}
 
 #scroll-down {
 	position: absolute;
@@ -75,7 +85,33 @@ Author: John Gibbons
 	}
 }
 
+#home-content-title {
+	display: none;
+}
+
 #home-about-image {
 	width: 100%;
+	height: 213px;
+	background-size: cover;
+	background-position: center;
+}
+
+#home-cta {
+	text-align: center;
+	a {
+		color: $white;
+		margin-bottom: 10px;
+		width: 219px;
+	}
+}
+
+#map-latitude, #map-longitude {
+	display: none;
+}
+
+#map-canvas {
+	width: 100%;
+	height: 213px;
+	margin-top: 100px;
 }
 

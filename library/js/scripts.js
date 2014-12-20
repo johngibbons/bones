@@ -102,6 +102,60 @@ function loadGravatars() {
 } // end function
 
 
+//Google Maps for home page
+
+function initializeGoogleMaps() {
+
+// Create an array of styles.
+  var styles = [
+    {
+      stylers: [
+        { hue: "#a9c3d9" },
+      ]
+    },
+    {
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { lightness: 100 },
+      ]
+    },
+    {
+      featureType: "poi.medical",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    },
+  ];
+
+  // Create a new StyledMapType object, passing it the array of styles,
+  // as well as the name to be displayed on the map type control.
+
+  var latitude = document.getElementById('map-latitude').innerHTML;
+  var longitude = document.getElementById('map-longitude').innerHTML;
+
+  var mapOptions = {
+    zoom: 14,
+    center: new google.maps.LatLng(latitude, longitude),
+    styles: styles
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+}
+
+function loadGoogleMaps() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+      'callback=initializeGoogleMaps';
+  document.body.appendChild(script);
+}
+
+window.onload = loadGoogleMaps;
+
 /*
  * Put all your regular jQuery in here.
 */
@@ -117,5 +171,17 @@ jQuery(document).ready(function($) {
     $('.header').toggleClass('opened');
   });
 
+  var s = $(".sticky");
+    var pos = s.offset();                    
+    $(window).scroll(function() {
+      var windowpos = $(window).scrollTop();
+      if (windowpos >= pos.top) {
+        s.addClass("stuck");
+        $('#home-content-title').show();
+      } else {
+        s.removeClass("stuck"); 
+        $('#home-content-title').hide();
+      }
+    });
 
 }); /* end of as page load scripts */

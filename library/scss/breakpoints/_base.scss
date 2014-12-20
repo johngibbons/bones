@@ -73,7 +73,6 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-	width: 96%;
 	margin: 0 auto;
 }
 
@@ -349,12 +348,17 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	margin-top: 166px;
+	margin-top: 64px;
 }
 
 		.hentry {
 			background-color: $white;
-			margin-bottom: 1.5em;
+
+			p {
+					width: 70%;
+					text-align: justify;
+					margin: 60px auto;
+			}
 
 			header {
 
@@ -364,7 +368,7 @@ POSTS & CONTENT STYLES
 				padding: 1.5em;
 
 				p {
-					margin: 0;
+					margin:0;
 				}
 			}
 
@@ -988,6 +992,7 @@ FOOTER STYLES
 	text-transform: uppercase;
 	font-size: 12px;
 	font-weight: 600;
+	margin: 25px 0;
 }
 
 	/*
