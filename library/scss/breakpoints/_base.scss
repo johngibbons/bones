@@ -171,12 +171,14 @@ HEADER STYLES
 	height: 64px;
 	background-color: $white;
 	border-bottom: 1px solid $alura-light-gray;
+	z-index: 1;
 }
 
 .header.opened {
 	position: fixed;
 	bottom:0;
 	top: auto;
+	z-index: 2;
 
 
 	#inner-header{
@@ -257,6 +259,7 @@ and more scalable.
 .nav {
 		border-bottom: 0;
 		margin: 0;
+		z-index: 1;
 
 	li {
 
@@ -386,7 +389,13 @@ POSTS & CONTENT STYLES
 		}
 
 		.page-title {
-			margin-bottom: 50px;
+			position: fixed;
+			top: 25px;
+			left: 50%;
+			font-size: 17px;
+			z-index: 1;
+			width: 75%;
+			margin-left: -37.5%;
 		}
 
 		.entry-title {
@@ -846,7 +855,7 @@ COMMENT STYLES
 
 	/* comment reply link */
 	.comment-reply-link {
-		@extend .blue-btn;
+		@extend .orange-btn;
 		font-size: 0.9em;
 		float: right;
 
@@ -902,7 +911,7 @@ COMMENT FORM STYLES
 
 	/* comment submit button */
 	#submit {
-		@extend .blue-btn;
+		@extend .orange-btn;
 		float: right;
 		font-size: 1em;
 	}

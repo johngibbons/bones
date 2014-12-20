@@ -1,0 +1,81 @@
+/******************************************************************
+Site Name: Alura
+Author: John Gibbons
+******************************************************************/
+@import "compass/css3/transform";
+
+.home .header {
+	position: absolute;
+	bottom: -64px;
+}
+
+#home-hero {
+	position: relative;
+	background-size: cover;
+	height: 100vh;
+	width: 100%;
+	z-index: -1000;
+}
+
+#hero-content {
+	width: 90%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include translate(-50%, -50%);
+
+	button {
+		display: block;
+		margin: 57px auto 0;
+	}
+}
+
+#home-logo {
+
+	img {
+		display: block;
+		width: 110px;
+		height: 80px;
+		margin: 0 auto;
+	}
+}
+
+#home-subtitle {
+
+	h4 {
+		font-family: $adobe-text-pro;
+		font-style: italic;
+		font-size: 12px;
+		color: $white;
+		text-transform: none;
+		letter-spacing: .05em;
+		text-align: center;
+	}
+}
+
+#scroll-down {
+	position: absolute;
+	bottom: 13px;
+	left: 50%;
+	@include translateX(-50%);
+
+	p{
+		text-align: center;
+		color: $white;
+		text-transform: uppercase;
+		font-size: 9px;
+		font-weight: 600;
+	}
+
+	img {
+		display: block;
+		margin: 0 auto;
+		width: 14px;
+		height: 8px;
+	}
+}
+
+#home-about-image {
+	width: 100%;
+}
+
