@@ -178,6 +178,10 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
 
+#content {
+	margin-top: 86px;
+}
+
 .page-title {
 	position: static;
 	top: auto;
@@ -192,7 +196,7 @@ POSTS & CONTENT STYLES
 
 .hentry {
 	p {
-		width: span(8);
+		width: 100%;
 	}
 }
 
@@ -348,6 +352,53 @@ mobile. Make sure to double check these!
 		}
 	}
 } /* end .footer-links */
+
+/**********************
+BLOG PAGE STYLES
+**********************/
+
+.post {
+	@include container(span(10) + 2 * gutter())
+}   
+
+.single-hero-container {
+	height: 275px;
+	overflow: hidden;
+}
+
+.blog {
+	.entry-content {
+		display: block;
+	}
+
+	.hentry {
+		p {
+			margin: 20px auto;
+		}
+
+		.byline {
+			margin-left: gutter();
+		}
+	}
+}
+
+.entry-title {
+	font-size: 18px;
+	margin-top: 35px;
+}
+
+.hentry  {
+	.byline {
+		margin: 12px 0;
+		font-size: 14px;
+		text-transform: uppercase;
+		margin-left: gutter();
+	}	
+	p {
+		margin: 60px auto;
+	}
+}
+
 
 /**********************
 HOME PAGE STYLES
@@ -546,3 +597,6 @@ textarea.contact-field {
 	margin-bottom: 15px;
 	margin-top: 5px;
 }
+
+
+ 

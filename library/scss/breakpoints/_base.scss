@@ -170,6 +170,7 @@ HEADER STYLES
 	height: 64px;
 	background-color: $white;
 	border-bottom: 1px solid $alura-light-gray;
+	font-weight: 600;
 	z-index: 1;
 }
 
@@ -348,16 +349,16 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	margin-top: 64px;
+	margin-top: 79px;
 }
 
 		.hentry {
 			background-color: $white;
 
 			p {
-					width: 90%;
+					width: 100%;
 					text-align: justify;
-					margin: 60px auto;
+					margin: 0 auto;
 			}
 
 			header {
@@ -382,7 +383,7 @@ POSTS & CONTENT STYLES
 		}
 
 		.single-hero-container {
-			height: 275px;
+			height: 138px;
 			overflow: hidden;
 		}
 
@@ -403,10 +404,10 @@ POSTS & CONTENT STYLES
 		}
 
 		.entry-title {
-			font-size: 18px;
+			font-size: 12px;
 			font-weight: 600;
 			text-align: left;
-			margin-top: 35px;
+			margin-top: 15px;
 			margin-left: gutter();
 		}
 
@@ -415,8 +416,9 @@ POSTS & CONTENT STYLES
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
 		.post {
-			@include container(span(10) + 2 * gutter())
-			}            /* general post style */
+			width: 90%;
+			margin: 0 auto;
+		}            /* general post style */
 		.page {}            /* general article on a page style */
 		.attachment {}      /* general style on an attatchment */
 		.sticky {}          /* sticky post style */
@@ -435,12 +437,27 @@ POSTS & CONTENT STYLES
 			time {}
 		}
 
+		.hentry .byline {
+			margin: 12px 0;
+			font-size: 10px;
+			text-transform: uppercase;
+			margin-left: gutter();
+			letter-spacing: .05em;
+		}
+
 		/* entry content */
+
+		.blog {
+			.entry-content {
+				display: none;
+			}
+		}
+
 		.entry-content {
 			margin: 35px gutter();
 
 			p {
-				margin: 0 0 1.5em;
+				
 			}
 
 
@@ -1213,10 +1230,15 @@ input[type="tel"].contact-field {
 }
 
 textarea.contact-field {
-	padding-top: 20px;
+	text-align: left;
+	padding-top: 50px;
+	padding-left: 20px;
 }
 
 .page-template-page-contact {
+	#content {
+		margin-top: 64px;
+	}
 	.wpcf7-submit{
 		display: block;
 		margin: 0 auto;
