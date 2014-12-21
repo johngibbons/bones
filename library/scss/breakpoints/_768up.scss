@@ -403,11 +403,21 @@ BLOG PAGE STYLES
 /**********************
 HOME PAGE STYLES
 **********************/
-.home .header {
-	position: absolute;
-	bottom: -86px;
-	top: auto;
+.home {
+	.header {
+		position: absolute;
+		bottom: -86px;
+		top: auto;
+	}
+
+	.hentry p {
+		@include container(span(10) + 2 * gutter())
+	}
 }
+
+
+
+
 
 #home-logo {
 
