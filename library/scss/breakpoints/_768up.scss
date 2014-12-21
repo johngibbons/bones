@@ -190,6 +190,12 @@ POSTS & CONTENT STYLES
 	margin-bottom: 50px;
 }
 
+.hentry {
+	p {
+		width: span(8);
+	}
+}
+
 /*********************
 SIDEBARS & ASIDES
 *********************/
@@ -469,4 +475,74 @@ HOME PAGE STYLES
 		margin-right: 10px;
 		}
 	}
+}
+
+/**********************
+CONTACT PAGE STYLES
+**********************/
+
+.page-template-page-contact{
+	.wrap {
+		@include container(span(16));
+	}
+
+	.wpcf7{
+		@include span(isolate 7 at 8);
+	}
+
+	.hentry {
+		width: auto;
+		p {
+			width: auto;
+			text-align: justify;
+			font-size: 24px;
+			margin: 0;
+		}
+	}
+
+	.wpcf7-submit{
+		margin: 0;
+		width: span(6);
+	}
+
+}
+
+#contact-heading-mobile {
+	display: none;
+}
+
+#contact-description {
+	@include span(isolate 4 at 3);
+	display: inline;
+}
+
+.contact-form-label {
+	position: static;
+}
+
+.contact-form-label-message {
+	position: static;
+}
+
+.contact-field {
+	font-weight: 300;
+	text-align: left;
+}
+
+.contact-form-section, .message {
+	border-bottom: none;
+}
+
+.contact-form-label, .contact-form-label-message, .contact-field {
+	font-size: 16px;
+}
+
+
+input[type="text"].contact-field, 
+input[type="email"].contact-field, 
+input[type="tel"].contact-field,
+textarea.contact-field {
+	background-color: $alura-light-gray;
+	margin-bottom: 15px;
+	margin-top: 5px;
 }

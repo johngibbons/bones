@@ -355,7 +355,7 @@ POSTS & CONTENT STYLES
 			background-color: $white;
 
 			p {
-					width: span(8);
+					width: 90%;
 					text-align: justify;
 					margin: 60px auto;
 			}
@@ -1157,10 +1157,14 @@ CONTACT PAGE SPECIFIC STYLES
 	border-bottom: 1px solid lighten($alura-medium-gray, 20%);
 }
 
+#contact-description {
+	display: none;
+}
+
+
 .contact-form-section, .message {
 	position: relative;
 	border-bottom: 1px solid $alura-light-gray;
-	box-sizing: border-box;
 }
 
 .message {
@@ -1212,9 +1216,11 @@ textarea.contact-field {
 	padding-top: 20px;
 }
 
-.page-template-page-contact .wpcf7-submit{
-	display: block;
-	margin: 0 auto;
-	width: 155px;
+.page-template-page-contact {
+	.wpcf7-submit{
+		display: block;
+		margin: 0 auto;
+		width: 155px;
+		font-weight: 300;
+	}
 }
-

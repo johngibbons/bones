@@ -42,10 +42,15 @@
 								</header>
 
 								<section class="cf" itemprop="articleBody">
-									<?php
-										// the content (pretty self explanatory huh)
-										the_content();
-									?>
+									<div id="contact-description">
+										<?php
+											// the content (pretty self explanatory huh)
+											the_content();
+										?>
+									</div>
+
+									<?php echo do_shortcode( '[contact-form-7 id="63" title="Contact Page Form"]' ); ?>
+
 								</section>
 
 							</article>
