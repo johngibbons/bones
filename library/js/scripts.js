@@ -177,10 +177,10 @@ jQuery(document).ready(function($) {
       var windowpos = $(window).scrollTop();
       if (windowpos >= pos.top) {
         s.addClass("stuck");
-        $('#home-content-title').show();
+        $('#home-content-title').addClass("visible");
       } else {
         s.removeClass("stuck"); 
-        $('#home-content-title').hide();
+        $('#home-content-title').removeClass("visible");
       }
     });
 

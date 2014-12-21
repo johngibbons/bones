@@ -50,6 +50,12 @@ function bones_head_cleanup() {
 	add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
 	// remove Wp version from scripts
 	add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
+	//remove contact-form-7 js for pages which don't need it
+	add_filter( 'wpcf7_load_js', '__return_false' );
+	//remove contact-form-7 css for pages which don't need it
+	add_filter( 'wpcf7_load_css', '__return_false' );
+	//remove paragraph tags around contact-form-7
+	add_filter( 'wpcf7_autop', '__return_false' );
 
 } /* end bones head cleanup */
 

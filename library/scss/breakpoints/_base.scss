@@ -355,7 +355,7 @@ POSTS & CONTENT STYLES
 			background-color: $white;
 
 			p {
-					width: 70%;
+					width: span(8);
 					text-align: justify;
 					margin: 60px auto;
 			}
@@ -1016,3 +1016,129 @@ FOOTER STYLES
 
 
 	.copyright {}
+
+/**********************
+HOME PAGE SPECIFIC STYLES
+**********************/
+
+
+.home .header {
+	position: absolute;
+	bottom: -64px;
+	top: auto;
+}
+
+.home .header.stuck {
+  position: fixed;
+  top: 0;
+  bottom: auto;
+}
+
+.home .header.stuck.opened {
+  top: auto;
+  bottom: 0;
+}
+
+#home-hero {
+	background-size: cover;
+	height: 100vh;
+	width: 100%;
+	z-index: -1000;
+}
+
+#hero-content {
+	width: 90%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include translate(-50%, -50%);
+	text-align: center;
+
+	.button {
+		color: $white;
+		margin-top: 57px;
+	}
+
+	#home-subtitle {
+		font-family: $adobe-text-pro;
+		font-style: italic;
+		font-size: 12px;
+		font-weight: 400;
+		color: $white;
+		text-transform: none;
+		letter-spacing: .05em;
+	}
+}
+
+#home-logo {
+
+	img {
+		display: block;
+		width: 110px;
+		height: 80px;
+		margin: 0 auto;
+	}
+}
+
+#home-contact-form {
+	display: none;
+}
+
+
+#scroll-down {
+	position: absolute;
+	bottom: 13px;
+	left: 50%;
+	@include translateX(-50%);
+
+	p{
+		text-align: center;
+		color: $white;
+		text-transform: uppercase;
+		font-size: 9px;
+		font-weight: 600;
+	}
+
+	img {
+		display: block;
+		margin: 0 auto;
+		width: 14px;
+		height: 8px;
+	}
+}
+
+#home-content-title {
+	display: none;
+}
+
+#home-content-title.visible {
+	display: block;
+}
+
+#home-about-image {
+	width: 100%;
+	height: 213px;
+	background-size: cover;
+	background-position: center;
+}
+
+#home-cta {
+	text-align: center;
+	a {
+		color: $white;
+		margin-bottom: 10px;
+		width: 219px;
+	}
+}
+
+#map-latitude, #map-longitude {
+	display: none;
+}
+
+#map-canvas {
+	width: 100%;
+	height: 213px;
+	margin-top: 100px;
+}
+
+

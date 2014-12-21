@@ -12,3 +12,7 @@ be seen on the Desktop.
 .wrap {
   @include container(span(14));
 }
+
+.home .wrap {
+	@include container(span(16 of 16));
+}

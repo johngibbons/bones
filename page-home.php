@@ -13,6 +13,14 @@
 */
 ?>
 
+<?php if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+        wpcf7_enqueue_scripts();
+    }
+ 
+    if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
+        wpcf7_enqueue_styles();
+    } ?>
+
 <?php get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
@@ -31,9 +39,13 @@
 							<img src="<?php echo $home_logo['url']; ?>" alt="<?php echo $home_logo['alt']; ?>">
 						</div>
 							<h4 id="home-subtitle"><?php the_field('home_subtitle') ?></h4>
-							<a href="<?php echo get_page_link(4); ?>" class="orange-btn button">
+							<a href="<?php echo get_page_link(4); ?>" id="home-contact-btn" class="orange-btn button">
 								contact us
 							</a>
+							<div id="home-contact-form">
+								<p id="home-contact-cta">interested in learning more?  fill out the form and we will get in touch.</p>
+								<?php echo do_shortcode( '[contact-form-7 id="62" title="Home Page Contact"]' ); ?>
+							</div>
 					</div>
 
 					<div id="scroll-down">
@@ -50,13 +62,15 @@
 
 						<main id="main" class="hentry cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 							<?php while ( have_posts() ) : the_post(); ?>
+
 								<div id="home-content-title">
-									<h1 class="page-title"><?php the_field('home_content_title')?></h1>
+									<h1 class="page-title"><?php the_field('home_content_title') ?></h1>
 								</div>
 
 								<div id="home-about-image" style="background-image: URL('<?php echo $home_content_image['url']; ?>')"></div>
-
-								<p><?php the_content(); ?></p>
+								<div id="home-content-text">
+									<p><?php the_content(); ?></p>
+								</div>
 
 							<?php endwhile; // end of the loop. ?>
 

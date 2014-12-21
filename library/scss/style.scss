@@ -25,6 +25,9 @@ the whole project.
 //import susy
 @import "susy";
 
+//import what we need from Compass
+@import "compass/css3/transform";
+
 // normalize: http://necolas.github.io/normalize.css/
 @import "partials/normalize";
 
@@ -39,9 +42,6 @@ the whole project.
 
 // import mixins
 @import "partials/mixins";
-
-//import home styles
-@import "partials/home";
 
 /*********************
 IMPORTING MODULES
