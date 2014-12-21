@@ -1141,4 +1141,80 @@ HOME PAGE SPECIFIC STYLES
 	margin-top: 100px;
 }
 
+/**********************
+CONTACT PAGE SPECIFIC STYLES
+**********************/
+
+#contact-heading-mobile {
+	background-color: $alura-light-gray;
+	font-size: 12px;
+	letter-spacing: .05em;
+	font-weight: 600;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 8px;
+	border-top: 1px solid darken($alura-light-gray, 10%);
+	border-bottom: 1px solid lighten($alura-medium-gray, 20%);
+}
+
+.contact-form-section, .message {
+	position: relative;
+	border-bottom: 1px solid $alura-light-gray;
+	box-sizing: border-box;
+}
+
+.message {
+	margin-bottom: 25px;
+}
+
+.contact-form-label, .contact-form-label-message, .contact-field {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: .05em;
+}
+
+.contact-form-label {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	@include translateY(-50%);
+	z-index: 1;
+}
+
+.contact-form-label-message {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	z-index: 1;
+}
+
+.contact-field {
+	font-weight: 300;
+	text-align: right;
+}
+
+input[type="text"].contact-field, 
+input[type="email"].contact-field, 
+input[type="tel"].contact-field,
+textarea.contact-field {
+	padding-right: 20px;
+	margin-bottom: 0;
+}
+
+input[type="text"].contact-field, 
+input[type="email"].contact-field, 
+input[type="tel"].contact-field {
+	height: 60px;
+}
+
+textarea.contact-field {
+	padding-top: 20px;
+}
+
+.page-template-page-contact .wpcf7-submit{
+	display: block;
+	margin: 0 auto;
+	width: 155px;
+}
 

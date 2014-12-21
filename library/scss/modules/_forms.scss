@@ -43,7 +43,6 @@ textarea,
   line-height: 40px;
   padding: 0 12px;
   margin-bottom: 14px;
-  font-size: 1em;
   color: $text-color;
   vertical-align: middle;
   box-shadow: none;
@@ -53,6 +52,7 @@ textarea,
   font-family: $proxima-nova;
   background-color: $white;
   @include transition(background-color 0.24s ease-in-out);
+  letter-spacing: .05em;
 
   // a focused input (or hovered on)
   &:focus,
