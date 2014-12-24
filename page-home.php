@@ -38,7 +38,7 @@
 						<div id="home-logo">
 							<img src="<?php echo $home_logo['url']; ?>" alt="<?php echo $home_logo['alt']; ?>">
 						</div>
-							<h4 id="home-subtitle"><?php the_field('home_subtitle') ?></h4>
+							<h4 id="home-subtitle"><?php the_field('home_subtitle'); ?></h4>
 							<a href="<?php echo get_page_link(4); ?>" id="home-contact-btn" class="orange-btn button">
 								contact us
 							</a>

@@ -184,4 +184,18 @@ jQuery(document).ready(function($) {
       }
     });
 
+    $('.unit-image-thumb').first().addClass('active');
+  //gallery function for single unit pages
+    $(".unit-image-thumb").click(function() {
+      var image = $(this).attr("rel");
+      $(".unit-image-thumb").removeClass('active');
+      $(this).addClass('active');
+      $('.unit-image-frame').html('<img src="' + image + '"/>');
+    });
+
+  //dropdown for other units
+    $('#unit-other-units').click(function() {
+      $('.cta li a').toggleClass('opened');
+    });
+
 }); /* end of as page load scripts */

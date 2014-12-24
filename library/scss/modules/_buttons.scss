@@ -70,4 +70,23 @@ and it will create a button dependant on those variables.
     background-color: darken($alura-orange, 5%);
   } // end active
 
-} // end blue button
+} // end orange button
+
+.gray-btn {
+  @extend %btn; // here we load the btn defaults
+  background-color: $alura-medium-gray;
+
+  &:hover,
+  &:focus {
+    background-color: darken($alura-medium-gray, 4%);
+  } // end hover
+
+  &:active {
+    background-color: darken($alura-medium-gray, 5%);
+  } // end active
+
+} // end gray button
+
+
+
+

@@ -105,6 +105,20 @@ a, a:visited {
 	}
 }
 
+
+a.gray-btn, a.orange-btn {
+  color: $white;
+  &:hover, &:focus {
+  	color: $white;
+  }
+}
+
+.gray-btn, .orange-btn {
+	a {
+		color: $white;
+	}
+}
+
 ::selection {
 	color: $white;
 	background: $alura-orange;
@@ -393,7 +407,7 @@ POSTS & CONTENT STYLES
 			height: auto;
 		}
 
-		.page-title {
+		.page-title, .single-title {
 			position: fixed;
 			top: 25px;
 			left: 50%;
@@ -1261,4 +1275,104 @@ textarea.contact-field {
 		width: 155px;
 		font-weight: 300;
 	}
+}
+
+
+/**********************
+SINGLE UNIT TYPE SPECIFIC STYLES
+**********************/
+
+.unit-image-frame {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	height: 294px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 10px;
+
+	img{
+		position: relative;
+		left: 50%;
+		@include translateX(-50%);
+		height: 294px;
+		width: auto;
+		max-width: none;
+	}
+}
+
+.thumb-wrapper {
+	width: 100%;
+}
+
+.unit-image-thumb {
+	@include gallery(1 of 5);
+	line-height: 0;
+	position: relative;
+	margin-bottom: gutter(5);
+
+	&:after {
+    content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba($black, 0.6);
+    @include opacity(0);
+    @include transition(all, 0.2s);
+	}
+
+	img {
+		margin: 0;
+	}
+}
+
+.active {
+	&:after {
+		@include opacity(1);
+	}
+}
+
+.unit-stats {
+	width: 80%;
+	margin: 0 auto;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	line-height: 2em;
+	.bold {
+		font-weight: 600;
+		@include isolate(3 of 5);
+	}
+	a {
+		color: $alura-dark-gray;
+	}
+}
+
+.unit-description {
+	width: 80%;
+	margin: 55px auto;
+}
+
+.unit-contact {
+	margin-bottom: 20px;
+}
+
+.cta {
+	width: 100%;
+	text-align: center;
+	a {
+		width: 200px;
+	}
+	text-align: center;
+  ul, li {
+    margin: 0;
+   	a {
+   		display: none;
+   		color: $alura-dark-gray;
+			background-color: $alura-light-gray;
+		}
+
+		a.opened {
+			display: inline-block;
+		}
+  }
 }

@@ -27,6 +27,8 @@ the whole project.
 
 //import what we need from Compass
 @import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/opacity";
 
 // normalize: http://necolas.github.io/normalize.css/
 @import "partials/normalize";
