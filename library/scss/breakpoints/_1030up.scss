@@ -29,3 +29,8 @@ be seen on the Desktop.
 			}
 		}
 	}
+
+.image-thumb {
+	@include gallery(2 of 12);
+	margin-bottom: gutter(12);
+ }

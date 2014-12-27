@@ -84,23 +84,16 @@
 
 									<div id="other-units">
 										<ul>
-											<?php $terms = get_terms('bedrooms');
-												if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-												    $count = count( $terms );
-												    $i = 0;
-												    $term_list = '<li class="bedrooms-archive">';
-												    foreach ( $terms as $term ) {
-												        $i++;
-												    	$term_list .= '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) . '" class="gray-btn">' . $term->name . '</a>';
-												    	if ( $count != $i ) {
-												            $term_list .= ' &middot; ';
-												        }
-												        else {
-												            $term_list .= '</li>';
-												        }
-												    }
-												    echo $term_list;
-												} ?>
+											<?php
+												$query = new WP_Query( array( 'post_type' => 'unit' ) );
+
+												while ( $query->have_posts() ) : $query->the_post();
+													echo '<li><a href="';
+													the_permalink();
+													echo '" class = "gray-btn">';
+													the_title();
+													echo '</a></li>';
+												endwhile; ?>
 										</ul>
 										<a href="#unit-other-units" id="unit-other-units" class="gray-btn button">other units</a>
 									</div>

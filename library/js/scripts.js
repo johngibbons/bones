@@ -167,22 +167,20 @@ jQuery(document).ready(function($) {
   */
   loadGravatars();
 
-  $('.mobile-nav-icon img').click(function() {
-    $('.header').toggleClass('opened');
-  });
+  navToggle();
 
   var s = $(".sticky");
-    var pos = s.offset();                    
-    $(window).scroll(function() {
-      var windowpos = $(window).scrollTop();
-      if (windowpos >= pos.top) {
-        s.addClass("stuck");
-        $('#home-content-title').addClass("visible");
-      } else {
-        s.removeClass("stuck"); 
-        $('#home-content-title').removeClass("visible");
-      }
-    });
+  var pos = s.offset();                    
+  $(window).scroll(function() {
+    var windowpos = $(window).scrollTop();
+    if (windowpos >= pos.top  || $('.header').hasClass('opened')) {
+      s.addClass("stuck");
+      $('#home-content-title').addClass("visible");
+    } else {
+      s.removeClass("stuck"); 
+      $('#home-content-title').removeClass("visible");
+    }
+  });
 
     $('.unit-image-thumb').first().addClass('active');
   //gallery function for single unit pages
@@ -198,5 +196,81 @@ jQuery(document).ready(function($) {
     $('#unit-other-units').click(function() {
       $('.cta li a').toggleClass('opened');
     });
+
+  var closeURL = window.location.protocol + "//" + window.location.host + "/alura/wp-content/themes/alura/library/images/close.png";
+  var navURL = window.location.protocol + "//" + window.location.host + "/alura/wp-content/themes/alura/library/images/nav-icon.png";
+
+  // swipebox gallery
+    $( '.swipebox' ).swipebox( {
+      afterOpen: function() {
+        $('#swipebox-bottom-bar')
+        $('#container').hide();
+      },
+      afterClose: function() {
+        $('#container').show();
+        navToggle();
+      } 
+    });
+
+  // // fullscreen images
+  //     var allImages = [];
+  //     $( ".image-thumb" ).each(function( index ) {
+  //       allImages.push($(this).attr("rel"));
+  //     });
+  //     console.log(allImages);
+
+  //   $('.image-thumb').click(function() {
+  //     var clickedThumb = $(this);
+  //     var clickedImage = $(this).attr("rel");
+  //     var relURL = window.location.protocol + "//" + window.location.host + "/alura/wp-content/themes/alura/library/images/close.png";
+  //     $('.mobile-nav-icon').html('<img src="' + relURL + '"/>').addClass('close-btn').removeClass('mobile-nav-icon');
+  //     fullscreen(clickedImage, clickedThumb);
+
+  //     $('.close-btn img').click(function() {
+  //       $('.full-back-nav').removeClass('hidden');
+  //       $('.full-forward-nav').removeClass('hidden');
+  //       var relURL = window.location.protocol + "//" + window.location.host + "/alura/wp-content/themes/alura/library/images/nav-icon.png";
+  //       $('.image-full-frame, .image-full-nav').hide();
+  //       $('.images-page-thumbs, .page-title').show();
+  //       $('.close-btn').html('<img src="' + relURL + '"/>').addClass('mobile-nav-icon').removeClass('close-btn');
+  //       navToggle();
+  //     });
+
+  //     $('img.full-back-nav').click(function() {
+  //       currentImage = $('.image-full-frame').css("background-image");
+  //       index = allImages.indexOf(currentImage);
+  //       console.log(currentImage);
+
+  //       i == 0 ? $('.full-back-nav').addClass('hidden') : $('.image-full-frame').css("background-image", 'URL(' + allImages[i-1] + ')');
+  //     });
+
+  //     $('img.full-forward-nav').click(function() {
+  //       currentImage = $('.image-full-frame').css("background-image");
+
+  //       for (i = 0; i < allImages.length; i++) { 
+  //           if (allImages[i] == currentImage) {
+  //             return i;
+  //           }
+  //       }
+        
+  //       $('.image-full-frame').css("background-image", 'URL(' + allImages[i+1] + ')');
+  //     });
+  //   });
+
+function navToggle() {
+  $('.mobile-nav-icon img').click(function() {
+    $('.header').toggleClass('opened');
+    $('.header').addClass('stuck');
+    $('.page-title, .single-title, .entry-title').toggle();
+  });
+};
+
+// function fullscreen(image, thumb) {
+//   $('.image-full-frame, .image-full-nav').show();
+//   $('.images-page-thumbs, .page-title').hide();
+//   $('.image-full-frame').css("background-image", 'URL(' + image + ')');
+//   if ( $( thumb ).is( ":first-child" )) {$('.full-back-nav').addClass('hidden');}
+//   if ( $( thumb ).is( ":last-child" )) {$('.full-forward-nav').addClass('hidden');}
+// }
 
 }); /* end of as page load scripts */

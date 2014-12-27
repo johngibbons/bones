@@ -677,5 +677,28 @@ SINGLE UNIT TYPE SPECIFIC STYLES
 
   }
 
+  /**********************
+IMAGES PAGE SPECIFIC STYLES
+**********************/
 
- 
+#swipebox-bottom-bar,
+#swipebox-top-bar{
+	position: absolute;
+	left: 0;
+	z-index: 999;
+	height: 50px;
+	width: 100%;
+}
+
+#swipebox-top-bar {
+	top: -50px;
+	
+	&.visible-bars {
+		transform: translate3d(0,50px,0);
+	}
+}
+
+.image-thumb {
+	@include gallery(3 of 12);
+	margin-bottom: gutter(12);
+ }

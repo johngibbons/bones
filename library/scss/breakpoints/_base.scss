@@ -25,6 +25,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.hidden {
+	display: none;
+}
+
 
 /********************
 WORDPRESS BODY CLASSES
@@ -187,7 +191,7 @@ HEADER STYLES
 	background-color: $white;
 	border-bottom: 1px solid lighten($alura-medium-gray, 25%);
 	font-weight: 600;
-	z-index: 1;
+	z-index: 10;
 }
 
 .header.opened {
@@ -218,6 +222,7 @@ HEADER STYLES
 		position: relative;
 		height: 120px;
 		background-color: $gray;
+		z-index: 12;
 	}
 
 	#nav-logo {
@@ -242,6 +247,17 @@ HEADER STYLES
 	img {
 		width: 14px;
 		height: 11px;
+	}
+}
+
+.close-btn {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+
+	img {
+		width: 14px;
+		height: 14px;
 	}
 }
 
@@ -415,7 +431,7 @@ POSTS & CONTENT STYLES
 			top: 25px;
 			left: 50%;
 			font-size: 17px;
-			z-index: 1;
+			z-index: 11;
 			width: 75%;
 			margin-left: -37.5%;
 		}
@@ -1407,4 +1423,63 @@ SINGLE UNIT TYPE SPECIFIC STYLES
   }
 }
 
+/**********************
+IMAGES PAGE SPECIFIC STYLES
+**********************/
+.page-template-page-images {
+	.entry-content {
+		width: 100%;
+		margin:0;
+	}
+}
 
+.images-page-thumbs {
+	width: 100%;
+	margin:0;
+}
+
+.image-thumb {
+	@include gallery(1 of 3 0);
+	margin: 0;
+	line-height: 0;
+	img {
+		margin: 0;
+	}
+}
+
+.image-full-frame {
+	display: none;
+	position: fixed;
+	background-size: cover;
+	background-position: center;
+	z-index: 2;
+	width: 100%;
+	bottom: 64px;
+	top: 64px;
+}
+
+.image-full-nav {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	background-color: $white;
+	height: 64px;
+	width: 100%;
+	z-index: 2;
+}
+
+.full-back-nav, .full-forward-nav {
+	position: absolute;
+	top: 50%;
+	@include translateY(-50%);
+	height: 14px;
+	width: 14px;
+}
+
+.full-back-nav {
+	left: 16px;
+}
+
+.full-forward-nav {
+	right: 16px;
+}
