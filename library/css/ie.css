@@ -1,12 +1,12 @@
 /*
 Error: Undefined mixin 'translate'.
-        on line 625 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss, in `translate'
-        from line 625 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss
+        on line 626 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss, in `translate'
+        from line 626 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss
         from line 29 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/ie.scss
 
 Backtrace:
-/Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss:625:in `translate'
-/Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss:625
+/Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss:626:in `translate'
+/Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss:626
 /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/ie.scss:29
 /Users/johngibbons/.rvm/gems/ruby-2.1.3/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:338:in `block in visit_mixin'
 /Users/johngibbons/.rvm/gems/ruby-2.1.3/gems/sass-3.4.5/lib/sass/stack.rb:98:in `block in with_mixin'
@@ -89,4 +89,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'translate'.\A         on line 625 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss, in `translate'\A         from line 625 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss\A         from line 29 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/ie.scss"; }
+  content: "Error: Undefined mixin 'translate'.\A         on line 626 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss, in `translate'\A         from line 626 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/breakpoints/_768up.scss\A         from line 29 of /Applications/MAMP/htdocs/alura/wp-content/themes/alura/library/scss/ie.scss"; }

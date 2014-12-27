@@ -569,7 +569,7 @@ CONTACT PAGE STYLES
 
 }
 
-#contact-heading-mobile {
+.small-heading-mobile {
 	display: none;
 }
 
@@ -578,11 +578,11 @@ CONTACT PAGE STYLES
 	display: inline;
 }
 
-.contact-form-label {
+.small-list-heading {
 	position: static;
 }
 
-.contact-form-label-message {
+.message {
 	position: static;
 }
 
@@ -591,11 +591,12 @@ CONTACT PAGE STYLES
 	text-align: left;
 }
 
-.contact-form-section, .message {
+.small-list-section, .message {
 	border-bottom: none;
+	height: auto;
 }
 
-.contact-form-label, .contact-form-label-message, .contact-field {
+.small-list-heading, .message, .contact-field {
 	font-size: 16px;
 }
 
