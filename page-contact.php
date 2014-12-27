@@ -29,7 +29,7 @@
 
 						<main id="main" class="cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-							<div id="contact-heading-mobile">contact information</div>
+							<h4 class="small-heading-mobile">contact information</h4>
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
