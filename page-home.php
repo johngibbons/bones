@@ -75,7 +75,7 @@
 							<?php endwhile; // end of the loop. ?>
 
 							<div id="home-cta">
-								<a href="<?php echo get_page_link(8); ?>" class="orange-btn button">
+								<a href="<?php echo get_page_link(8); ?>" class="gray-btn button">
 									see units for sale
 								</a>
 								<a href="<?php echo get_page_link(4); ?>" class="orange-btn button">

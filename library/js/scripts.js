@@ -186,7 +186,8 @@ jQuery(document).ready(function($) {
 
     $('.unit-image-thumb').first().addClass('active');
   //gallery function for single unit pages
-    $(".unit-image-thumb").click(function() {
+    $(".unit-image-thumb").click(function(e) {
+      e.preventDefault();
       var image = $(this).attr("rel");
       $(".unit-image-thumb").removeClass('active');
       $(this).addClass('active');

@@ -16,3 +16,16 @@ be seen on the Desktop.
 .home .wrap {
 	@include container(span(16 of 16));
 }
+
+.nav {
+
+	ul {
+	}
+	li {
+
+		a {
+			font-size: 14px;
+			padding: 0.5em 0.75em;
+			}
+		}
+	}

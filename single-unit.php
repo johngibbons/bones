@@ -35,7 +35,7 @@
 
 								<section class="entry-content cf">
 
-								<section class="unit-image-frame">
+								<section id="frame" class="unit-image-frame">
 									<?php	
 
 									$images = get_field('unit_images');
@@ -50,7 +50,7 @@
 								<section class='thumb-wrapper'>
 											<?php foreach( $images as $image ): ?>
 												<a href="#" rel="<?php echo $image['sizes']['large']; ?>" class="unit-image-thumb">
-		                     <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
+		                     <img src="<?php echo $image['sizes']['bones-thumb-300']; ?>" alt="<?php echo $image['alt']; ?>" />
 				                </a>
 				              <?php endforeach; ?>
 										<?php endif; ?>
@@ -60,9 +60,15 @@
 								<section class="unit-stats">
 
 										<ul>
-											<li>Unit Type: <span class="bold"><?php the_terms($post->ID, 'bedrooms'); ?></span></li>
-											<li>Size: <span class="bold"><?php number_format(the_field('square_footage')); ?> sq. ft.</span></li>
-											<li>Price: <span class="bold">$<?php the_field('price'); ?></span></li>
+											<li>Unit Type:</li>
+											<li>Size:</li>
+											<li>Price:</li>
+										</ul>
+
+										<ul class="bold">
+											<li><?php the_terms($post->ID, 'bedrooms'); ?></li>
+											<li><?php number_format(the_field('square_footage')); ?> sq. ft.</li>
+											<li>$<?php the_field('price'); ?></li>
 										</ul>
 
 								</section>
@@ -76,26 +82,28 @@
 										contact us
 									</a>
 
-									<ul>
-										<?php $terms = get_terms('bedrooms');
-											if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-											    $count = count( $terms );
-											    $i = 0;
-											    $term_list = '<li class="bedrooms-archive">';
-											    foreach ( $terms as $term ) {
-											        $i++;
-											    	$term_list .= '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) . '" class="gray-btn">' . $term->name . '</a>';
-											    	if ( $count != $i ) {
-											            $term_list .= ' &middot; ';
-											        }
-											        else {
-											            $term_list .= '</li>';
-											        }
-											    }
-											    echo $term_list;
-											} ?>
-									</ul>
-									<a href="#unit-other-units" id="unit-other-units" class="gray-btn button">other units</a>
+									<div id="other-units">
+										<ul>
+											<?php $terms = get_terms('bedrooms');
+												if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+												    $count = count( $terms );
+												    $i = 0;
+												    $term_list = '<li class="bedrooms-archive">';
+												    foreach ( $terms as $term ) {
+												        $i++;
+												    	$term_list .= '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) . '" class="gray-btn">' . $term->name . '</a>';
+												    	if ( $count != $i ) {
+												            $term_list .= ' &middot; ';
+												        }
+												        else {
+												            $term_list .= '</li>';
+												        }
+												    }
+												    echo $term_list;
+												} ?>
+										</ul>
+										<a href="#unit-other-units" id="unit-other-units" class="gray-btn button">other units</a>
+									</div>
 								</section>
 
 							</article>

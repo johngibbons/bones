@@ -82,10 +82,11 @@ NAVIGATION STYLES
 		position: relative;
 
 		a {
+			font-size: 11px;
 			display: inline-block;
 			color: $text-color;
 			border-bottom: 0;
-			padding: 0.5em 0.75em;
+			padding: 0.5em 0.5em;
 			width: auto;
 			background-color: transparent;
 
@@ -179,10 +180,10 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	margin-top: 86px;
+	padding-top: 86px;
 }
 
-.page-title {
+.page-title, .single-title, .single-unit .single-title {
 	position: static;
 	top: auto;
 	left: auto;
@@ -190,7 +191,7 @@ POSTS & CONTENT STYLES
 	width: auto;
 	text-align: center;
 	margin-left: auto;
-	margin-top: 100px;
+	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
@@ -607,6 +608,73 @@ textarea.contact-field {
 	margin-bottom: 15px;
 	margin-top: 5px;
 }
+
+/**********************
+SINGLE UNIT TYPE SPECIFIC STYLES
+**********************/
+
+.single-unit .wrap {
+	@include container(span(12));
+}
+
+.unit-image-frame {
+	height: 450px;
+	margin-bottom: gutter(12);
+
+	img{
+		@include translate(-50%,-50%);
+		height: auto;
+		top: 50%;
+		width: 100%;
+	}
+}
+
+.unit-image-thumb {
+	@include gallery(2 of 12);
+	height: auto;
+	margin-bottom: gutter(12);
+
+	img {
+		width: 100%;
+	}
+}
+
+.unit-stats {
+	font-size: 18px;
+	line-height: 2.5em;
+	margin-left: span(2 of 12) + gutter(12);
+	margin-top: 75px;
+	margin-bottom: 75px;
+	.bold {
+		top: -9.5em;
+		@include isolate(8 of 12);
+	}
+}
+
+.unit-description {
+	@include container(span(10 of 12));
+}
+
+.unit-contact {
+	margin-bottom: 20px;
+}
+
+.cta {
+	a {
+		margin-right: 5px;
+		display: inline-block;
+	}
+
+	#other-units{
+		margin-left: 5px;
+		display: inline-block;
+	}
+
+	ul, li {
+		display: block;
+	}
+
+  }
 
 
  

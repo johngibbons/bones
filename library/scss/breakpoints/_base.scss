@@ -14,7 +14,6 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
-
 body {
 	@include layout(16 15px);
 	font-family: $proxima-nova;
@@ -74,6 +73,9 @@ LAYOUT & GRID STYLES
 
 .wrap {
 	margin: 0 auto;
+}
+
+#container {
 }
 
 /*********************
@@ -363,7 +365,7 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	margin-top: 79px;
+	padding-top: 64px;
 }
 
 		.hentry {
@@ -381,6 +383,7 @@ POSTS & CONTENT STYLES
 
 			footer {
 				padding: 1.5em;
+				width: 100%;
 
 				p {
 					margin:0;
@@ -407,7 +410,7 @@ POSTS & CONTENT STYLES
 			height: auto;
 		}
 
-		.page-title, .single-title {
+		.page-title, .single-unit .single-title {
 			position: fixed;
 			top: 25px;
 			left: 50%;
@@ -468,7 +471,7 @@ POSTS & CONTENT STYLES
 		}
 
 		.entry-content {
-			margin: 35px gutter();
+			margin: 0 gutter();
 
 			p {
 				
@@ -1023,7 +1026,12 @@ FOOTER STYLES
 	text-transform: uppercase;
 	font-size: 12px;
 	font-weight: 600;
-	margin: 25px 0;
+	margin-top: 50px;
+	width: 100%;
+
+	p {
+		margin: 0;
+	}
 }
 
 	/*
@@ -1069,10 +1077,6 @@ HOME PAGE SPECIFIC STYLES
 	.header.stuck.opened {
 	  top: auto;
 	  bottom: 0;
-	}
-
-	#content {
-		margin-top: 64px;
 	}
 
 	.hentry {
@@ -1266,9 +1270,6 @@ textarea.contact-field {
 }
 
 .page-template-page-contact {
-	#content {
-		margin-top: 64px;
-	}
 	.wpcf7-submit{
 		display: block;
 		margin: 0 auto;
@@ -1289,7 +1290,7 @@ SINGLE UNIT TYPE SPECIFIC STYLES
 	height: 294px;
 	overflow: hidden;
 	position: relative;
-	margin-bottom: 10px;
+	margin-bottom: gutter(5);
 
 	img{
 		position: relative;
@@ -1339,6 +1340,8 @@ SINGLE UNIT TYPE SPECIFIC STYLES
 	text-transform: uppercase;
 	line-height: 2em;
 	.bold {
+		position: relative;
+		top: -8em;
 		font-weight: 600;
 		@include isolate(3 of 5);
 	}
@@ -1350,10 +1353,6 @@ SINGLE UNIT TYPE SPECIFIC STYLES
 .unit-description {
 	width: 80%;
 	margin: 55px auto;
-}
-
-.unit-contact {
-	margin-bottom: 20px;
 }
 
 .cta {
