@@ -298,6 +298,74 @@ function bones_excerpt_more($more) {
 	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'bonestheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'bonestheme' ) .'</a>';
 }
 
+/*********************
+BREADCRUMBS FUNCTION
+*********************/
+function the_breadcrumb() {
+	$blog_page_id = get_option('page_for_posts');
+	if ( is_front_page() && is_home() ) {
+	  // Default homepage
+	} elseif ( is_front_page() ) {
+	  // static homepage
+	} elseif ( is_home() ) {
+	  // blog page
+	} else {
+	  //everything else
+	}
+	if (!is_front_page()) {
+		echo '<a href="';
+		echo get_option('home');
+		echo '">';
+		bloginfo('name');
+		echo "</a> //  ";
+		if (is_single()) {
+			if (is_singular('unit')) {
+				echo '<a href="';
+				echo get_permalink(8); 
+				echo '">';
+				echo get_the_title(8);
+				echo '</a>';
+			}
+			else {
+				echo '<a href="';
+				echo get_permalink(get_option('page_for_posts')); 
+				echo '">';
+				echo get_page($blog_page_id)->post_title;
+				echo '</a>';
+			}
+			echo " //";
+			if (is_single()) {
+				echo "  ";
+				the_title();
+			}
+		} elseif (is_page()) {
+			echo the_title();
+		}
+			elseif( is_home() && get_option('page_for_posts') ) {
+				echo get_page($blog_page_id)->post_title;
+			}
+			elseif (is_category()) {
+				the_category('title_li=');
+			}
+	}
+}
+
+// Add div wrapper for all post images
+function add_div_to_image( $content ) {
+
+   // A regular expression of what to look for.
+   $pattern = '/(<img([^>]*)>)/i';
+   // What to replace it with. $1 refers to the content in the first 'capture group', in parentheses above
+   $replacement = '<div class="image-wrap">$1</div>';
+
+   // run preg_replace() on the $content
+   $content = preg_replace( $pattern, $replacement, $content );
+
+   // return the processed content
+   return $content;
+}
+
+add_filter( 'the_content', 'add_div_to_image' );
 
 
 ?>

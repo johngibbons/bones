@@ -64,7 +64,7 @@
 
 
 					<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<?php wp_nav_menu(array(
+						<?php $main_menu = wp_nav_menu(array(
     					         'container' => false,                           // remove nav container
     					         'container_class' => 'menu cf',                 // class of container (should you choose to use it)
     					         'menu' => __( 'The Main Menu', 'bonestheme' ),  // nav name
@@ -76,10 +76,16 @@
         			               'link_after' => '',                             // after each link
         			               'depth' => 0,                                   // limit the depth of the nav
     					         'fallback_cb' => ''                             // fallback function (if there is one)
-						)); ?>
+						)); 
+
+						?>
 
 					</nav>
 
 				</div>
 
 			</header>
+
+			<div id="breadcrumbs-container">
+				<?php the_breadcrumb(); ?>
+			</div>

@@ -35,22 +35,19 @@
 
 								<section class="entry-content cf">
 
-								<section id="frame" class="unit-image-frame">
+								<div class="image-wrap"><section id="frame" class="unit-image-frame">
 									<?php	
 
 									$images = get_field('unit_images');
 
 										if( $images ): ?>
-											<?php foreach( $images as $image ): ?>
-		                     <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" class="unit-image-large" />
-				              <?php endforeach; ?>
-			              
-								</section>
+		                     <img src="<?php echo $images[0]['sizes']['large']; ?>" alt="<?php echo $images[0]['alt']; ?>" class="unit-image-large" />
+								</section></div>
 
 								<section class='thumb-wrapper'>
 											<?php foreach( $images as $image ): ?>
 												<a href="#" rel="<?php echo $image['sizes']['large']; ?>" class="unit-image-thumb">
-		                     <img src="<?php echo $image['sizes']['bones-thumb-300']; ?>" alt="<?php echo $image['alt']; ?>" />
+		                     <div class="image-wrap"><img src="<?php echo $image['sizes']['bones-thumb-300']; ?>" alt="<?php echo $image['alt']; ?>" /></div>
 				                </a>
 				              <?php endforeach; ?>
 										<?php endif; ?>

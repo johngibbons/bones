@@ -26,9 +26,20 @@
 
 								<h1 class="page-title"><?php the_title(); ?></h1>
 
+								<div id="units-content">
+
+								<section id="site-plan">
+									<a href="">
+									<a href="">
+									<a href="">
+									<a href="">
+									<a href="">
+								</section>
+
 							<?php endwhile; endif; ?>
 
 
+    					<section class="units-description-container">
 								<?php
                   $post_type = 'unit';
 
@@ -53,26 +64,29 @@
 															),
 												'posts_per_page' => '-1'));
 
-    									?><h4 class="small-heading-mobile"><?php echo $term->name; ?></h4> <?php
-                      
-
-                      if( $posts->have_posts() ) :
+    									?><h4 class="small-heading-mobile"><?php echo $term->name; ?></h4>
+	    									
+                      <?php if( $posts->have_posts() ) :
                      
                       	while( $posts->have_posts() ) : $posts->the_post(); ?>
 
-							<a href="<?php the_permalink(); ?>">
+								<a href="<?php the_permalink(); ?>">
 
-								<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+									<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf, units-description' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-									<header class="article-header small-list-section">
+										<header class="small-list-section">
 
-										<span class="units-title small-list-heading"><?php the_title(); ?></span>
-										<span class="units-cta small-list-heading">More Info <img src="<?php echo get_template_directory_uri(); ?>/library/images/right-arrow.png" class="units-right-arrow"></span>
+											<span class="units-title small-list-heading <?php the_ID(); ?>"><?php the_title(); ?></span>
+											<span class="units-bedrooms small-list-heading"> <?php echo $term->name; ?></span>
+											<span class="units-size small-list-heading"> <?php number_format(the_field('square_footage')); ?> sq. ft.</span>
+											<span class="units-price small-list-heading"> $<?php the_field('price'); ?></span>
+											<span class="units-cta small-list-heading">More Info <img src="<?php echo get_template_directory_uri(); ?>/library/images/right-arrow.png" class="units-right-arrow"></span>
+											<div class="units-preview-image"></div>
 
-									</header>
+										</header>
 
-								</article>
-							</a>
+									</article>
+								</a>
 
 									<?php endwhile;
                                                                                
@@ -95,7 +109,9 @@
 									    endforeach;
 
 									endforeach; ?>
+							</section>
 
+							</div>
 									
 
 						</main>

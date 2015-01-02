@@ -276,6 +276,31 @@ HEADER STYLES
 
 }
 
+#breadcrumbs-container {
+  margin-left: span(2 of 16) + gutter(16);
+
+}
+
+#breadcrumbs-container{
+		display: none;
+    list-style:none;
+    margin-top: 95px;
+    margin-bottom: 20px;
+    overflow:hidden;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+}
+ 
+#breadcrumbs a{
+    float:left;
+    margin-right:2px;
+}
+ 
+#breadcrumbs .separator{
+
+}
+
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -294,7 +319,6 @@ and more scalable.
 		z-index: 1;
 
 	li {
-
 		a {
 			display: block;
 			color: $white;
@@ -303,7 +327,7 @@ and more scalable.
 			text-transform: uppercase;
 			letter-spacing: .1em;
 			width: 100%;
-			padding: 27px 0 27px 35px;
+			padding-left: 35px;
 			border-bottom: 1px solid darken($alura-medium-gray, 20%);
 
 			/*
@@ -384,6 +408,29 @@ POSTS & CONTENT STYLES
 	padding-top: 64px;
 }
 
+.image-wrap img {
+  opacity: 0;
+  -webkit-transition: opacity 1000ms;
+  -ms-transition: opacity 1000ms;
+  -moz-transition: opacity 1000ms;
+  -o-transition: opacity 1000ms;
+  transition: opacity 1000ms;			
+}
+
+.image-wrap {
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('../images/loading.GIF') 50% 50% no-repeat rgb(249,249,249);
+}
+
+.image-wrap.loaded {
+  background: none;
+}
+
+.image-wrap.loaded img {
+  opacity: 1;
+}
 		.hentry {
 			background-color: $white;
 
@@ -416,6 +463,7 @@ POSTS & CONTENT STYLES
 		}
 
 		.single-hero-container {
+			position: relative;
 			height: 138px;
 			overflow: hidden;
 		}
@@ -424,6 +472,9 @@ POSTS & CONTENT STYLES
 			display: inline-block;
 			width: 100%;
 			height: auto;
+			position: absolute;
+			top: 50%;
+			@include translateY(-50%);
 		}
 
 		.page-title, .single-unit .single-title {
@@ -582,6 +633,8 @@ POSTS & CONTENT STYLES
 				max-width: 100%;
 				height: auto;
 			}
+
+			
 
 			/*
 			image alignment on a screen this size may be
@@ -1043,6 +1096,7 @@ FOOTER STYLES
 	font-size: 12px;
 	font-weight: 600;
 	margin-top: 50px;
+	margin-bottom: 10px;
 	width: 100%;
 
 	p {
@@ -1078,6 +1132,10 @@ HOME PAGE SPECIFIC STYLES
 
 
 .home {
+	#breadcrumbs-container {
+		display: none;
+	}
+
 	.header {
 		position: absolute;
 		bottom: -64px;
@@ -1323,6 +1381,10 @@ ALL UNITS PAGE SPECIFIC STYLES
 	height: 14px;
 	vertical-align: -3px;
 	padding-left: 5px;
+}
+
+#site-plan, .units-bedrooms, .units-size, .units-price, .units-preview-image {
+	display: none;
 }
 
 

@@ -244,6 +244,21 @@ function bones_fonts() {
 
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
+// Add div wrapper for all post images
+function addDivToImage( $content ) {
 
+   // A regular expression of what to look for.
+   $pattern = '/(<img([^>]*)>)/i';
+   // What to replace it with. $1 refers to the content in the first 'capture group', in parentheses above
+   $replacement = '<div class="image-wrap">$1</div>';
+
+   // run preg_replace() on the $content
+   $content = preg_replace( $pattern, $replacement, $content );
+
+   // return the processed content
+   return $content;
+}
+
+add_filter( 'the_content', 'addDivToImage' );
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

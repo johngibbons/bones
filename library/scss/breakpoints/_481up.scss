@@ -115,3 +115,17 @@ do they need tweaking?
 	}
 } /* end .footer-links */
 
+
+.unit-image-frame {
+	height: 450px;
+	margin-bottom: gutter(12);
+
+	img{
+		position: absolute;
+		left: 0;
+		@include translateY(-50%);
+		height: auto;
+		top: 50%;
+		width: 100%;
+	}
+}

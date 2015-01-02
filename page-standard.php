@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Images
+ Template Name: Standard Page
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -32,26 +32,19 @@
 								</header>
 
 								<section class="entry-content cf" itemprop="articleBody">
-								
-										<?php	
 
-									$images = get_field('images');
-									if( $images ): ?>
-										<section class='images-page-thumbs'>
-											<?php foreach( $images as $image ): ?>
-												<a href="<?php echo $image['url']; ?>" class="swipebox image-thumb">
-		                     <div class="image-wrap"><img src="<?php echo $image['sizes']['bones-thumb-300']; ?>" alt="<?php echo $image['alt']; ?>" /></div>
-				                </a>
-				              <?php endforeach; ?>
-										</section>
-										<section class='image-full-frame'></section>
-										<section class='image-full-nav'>
-											<img src="<?php echo get_template_directory_uri(); ?>/library/images/back.png" class="full-back-nav">
-											<img src="<?php echo get_template_directory_uri(); ?>/library/images/forward.png" class="full-forward-nav">
-										</section>
-									<?php endif; ?>
+								<div class="image-wrap">
+									<?php 
+									$image = get_field('main_image');
+									if( $image ): ?>
+	                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="unit-image-large" />
+	                 <?php endif ?>
+               </div>
 
+									<?php the_field('main_content') ?>
+						
 								</section>
+
 
 							</article>
 

@@ -22,9 +22,8 @@ function updateViewportDimensions() {
 	var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth,y=w.innerHeight||e.clientHeight||g.clientHeight;
 	return { width:x,height:y }
 }
-// setting the viewport width
-var viewport = updateViewportDimensions();
 
+var viewport = updateViewportDimensions();
 
 /*
  * Throttle Resize-triggered Events
@@ -61,22 +60,9 @@ var timeToWaitForLast = 100;
  * We can then use that check to perform actions on the home page only
  *
  * When the window is resized, we perform this function
- * $(window).resize(function () {
- *
- *    // if we're on the home page, we wait the set amount (in function above) then fire the function
- *    if( is_home ) { waitForFinalEvent( function() {
- *
- *      // if we're above or equal to 768 fire this off
- *      if( viewport.width >= 768 ) {
- *        console.log('On home page and window sized to 768 width or more.');
- *      } else {
- *        // otherwise, let's do this instead
- *        console.log('Not on home page, or window sized to less than 768.');
- *      }
- *
- *    }, timeToWaitForLast, "your-function-identifier-string"); }
- * });
- *
+ */ 
+
+ /*
  * Pretty cool huh? You can create functions like this to conditionally load
  * content and other stuff dependent on the viewport.
  * Remember that mobile devices and javascript aren't the best of friends.
@@ -169,6 +155,48 @@ jQuery(document).ready(function($) {
 
   navToggle();
 
+    //custom nav styles based on number of items
+
+  var numberMenuItems = $('.menu-item').length;
+  var navLogoHeight = $('#nav-logo-container').height();
+  var headerBarHeight = $('.header').height();
+
+  var totalNavHeight = viewport.height - 120 - headerBarHeight;
+  var menuItemHeight = totalNavHeight / numberMenuItems;
+
+  $(window).resize(function () {
+ 
+     // if we're on the home page, we wait the set amount (in function above) then fire the function
+       waitForFinalEvent( function() {
+        
+        viewport = updateViewportDimensions();
+        resizeNavHeight();
+      
+     }, timeToWaitForLast, "resize width"); 
+
+  });
+
+  //nice loading for images
+  $("img").load(function() {
+    $(this).parent().closest('.image-wrap').addClass("loaded");
+  }).each(function() {
+    if(this.complete) $(this).load();
+  });
+
+//navigation evenly spaced elements
+function resizeNavHeight() {
+  if (viewport.width < 768) {
+    $('.menu-item a').css('height', menuItemHeight);
+    $('.menu-item a').css('padding-top', menuItemHeight/2 - 14);
+  }
+  else {
+    $('.menu-item a').css('height', 'auto');
+  }
+}
+
+resizeNavHeight();
+
+
   var s = $(".sticky");
   var pos = s.offset();                    
   $(window).scroll(function() {
@@ -211,6 +239,7 @@ jQuery(document).ready(function($) {
         navToggle();
       } 
     });
+
 
   // // fullscreen images
   //     var allImages = [];
@@ -262,6 +291,7 @@ function navToggle() {
     $('.header').toggleClass('opened');
     $('.header').addClass('stuck');
     $('.page-title, .single-title, .entry-title').toggle();
+    $('#content, #home-hero, .footer').toggle();
   });
 };
 
